@@ -65,12 +65,13 @@ public class UserController {
     @PostMapping(value = "/admin/user/create")
     public String createUserPage(Model model,
             @ModelAttribute("newUser") @Valid User hoidanit,
-            BindingResult bindingResult,
-            @RequestParam("hoidanitFile") MultipartFile file) {
+            BindingResult bindingResult),
+            @RequestParam("hoidanitFile") MultipartFile file
+             {
         // validate
         List<FieldError> errors = bindingResult.getFieldErrors();
         for (FieldError error : errors) {
-            System.out.println(">>>>>" + error.getObjectName() + " - " + error.getDefaultMessage());
+            System.out.println(error.getObjectName() + " - " + error.getDefaultMessage());
         }
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");

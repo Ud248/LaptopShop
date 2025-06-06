@@ -70,7 +70,7 @@ public class UserController {
         // validate
         List<FieldError> errors = bindingResult.getFieldErrors();
         for (FieldError error : errors) {
-            System.out.println(">>>>>" + error.getObjectName() + " - " + error.getDefaultMessage());
+            System.out.println(error.getObjectName() + " - " + error.getDefaultMessage());
         }
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
