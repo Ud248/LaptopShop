@@ -67,13 +67,14 @@ public class UserController {
             @ModelAttribute("newUser") @Valid User hoidanit,
             BindingResult newUserBindingResult,
             @RequestParam("hoidanitFile") MultipartFile file) {
-        List<FieldError> errors = newUserBindingResult.getFieldErrors();
+        // validate
+        List<FieldError> errors = bindingResult.getFieldErrors();
         for (FieldError error : errors) {
             System.out.println(">>>>>" + error.getField() + " - " + error.getDefaultMessage());
         }
 
-        // validate
         if (newUserBindingResult.hasErrors()) {
+            model.addAttribute("newUser", hoidanit);
             return "admin/user/create";
         }
 

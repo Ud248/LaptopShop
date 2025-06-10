@@ -23,15 +23,15 @@ public class User {
     private long id;
 
     @NotNull
-    @Email(message = "Email không hợp lệ", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
+    @Email(message = "Email is not valid", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     private String email;
 
     @NotNull
-    @Min(value = 2, message = "Password phải có ít nhất 2 ký tự")
+    @Min(value = 2, message = "Passwor phải có ít nhất 2 ký tự")
     private String password;
 
     @NotNull
-    @Min(value = 3, message = "Fullname phải có ít nhất 3 ký tự")
+    @Min(value = 3, message = "Passwor phải có ít nhất 3 ký tự")
     private String fullName;
 
     private String address;

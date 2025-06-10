@@ -50,9 +50,7 @@
                                                         <form:errors path="email" cssClass="invalid-feedback" />
                                                     </c:set>
                                                     <label class="form-label">Email:</label>
-                                                    <form:input type="email"
-                                                        class="form-control  ${not empty errorEmail ? 'is-invalid' : ''}"
-                                                        path="email" />
+                                                    <form:input type="email" class="form-control" path="email" />
                                                     ${errorEmail}
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
@@ -74,9 +72,7 @@
                                                         <form:errors path="fullName" cssClass="invalid-feedback" />
                                                     </c:set>
                                                     <label class="form-label">Full Name:</label>
-                                                    <form:input type="text"
-                                                        class="form-control ${not empty errorFullname ? 'is-invalid' : ''}"
-                                                        path="fullName" />
+                                                    <form:input type="text" class="form-control" path="fullName" />
                                                     ${errorFullname}
                                                 </div>
                                                 <div class="mb-3 col-12">
