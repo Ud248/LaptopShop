@@ -14,9 +14,7 @@ import jakarta.servlet.ServletContext;
 public class UploadService {
     private final ServletContext servletContext;
 
-    public UploadService(
-            ServletContext servletContext) {
-
+    public UploadService(ServletContext servletContext) {
         this.servletContext = servletContext;
     }
 
