@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.Product;
-import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.ProductService;
 import vn.hoidanit.laptopshop.service.UploadService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ProductController {
@@ -63,7 +61,7 @@ public class ProductController {
 
     @RequestMapping("admin/product/{id}")
     public String getProductDetailPage(Model model, @PathVariable long id) {
-        Product pr = this.productService.getProductById(id);
+        Product pr = this.productService.getProductById(id).get();
         model.addAttribute("product", pr);
         model.addAttribute("id", id);
         return "admin/product/detail";
@@ -71,7 +69,7 @@ public class ProductController {
 
     @RequestMapping("admin/product/update/{id}") // Get
     public String getUpdateProductPage(Model model, @PathVariable long id) {
-        Product product = this.productService.getProductById(id);
+        Product product = this.productService.getProductById(id).get();
         model.addAttribute("newProduct", product);
         return "admin/product/update";
     }
@@ -86,7 +84,7 @@ public class ProductController {
             return "admin/product/update";
         }
 
-        Product currentProduct = this.productService.getProductById(product.getId());
+        Product currentProduct = this.productService.getProductById(product.getId()).get();
         if (currentProduct != null) {
             if (!file.isEmpty()) {
                 String img = this.uploadService.handleSaveUploadFile(file, "product");
