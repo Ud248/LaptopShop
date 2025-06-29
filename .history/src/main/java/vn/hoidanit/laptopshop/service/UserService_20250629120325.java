@@ -47,7 +47,7 @@ public class UserService {
         return this.roleRepository.findByName(name);
     }
 
-    public User registerDTOtoUser(RegisterDTO registerDTO) {
+    public User registerDTOtoUser(RegisterDTO registerDTO){
         User user = new User();
         user.setFullName(registerDTO.getFirstName() + ' ' + registerDTO.getLastName());
         user.setEmail(registerDTO.getEmail());
@@ -55,7 +55,5 @@ public class UserService {
         return user;
     }
 
-    public boolean checkEmailExist(String email) {
-        return this.userRepository.existsByEmail(email);
-    }
+    public boolean checkEmailExist(String email)
 }

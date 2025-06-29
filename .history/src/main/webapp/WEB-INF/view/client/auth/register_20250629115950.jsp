@@ -56,17 +56,15 @@
                                                             class="form-control ${not empty errorEmail ? 'is-invalid' : ''}"
                                                             path="email" type="email" placeholder="name@example.com" />
                                                         <label for="inputEmail">Email address</label>
-                                                        ${errorEmail}
+                                                        ${error}
                                                     </div>
                                                     <div class="row mb-3">
                                                         <div class="col-md-6">
                                                             <div class="form-floating mb-3 mb-md-0">
-                                                                <form:input
-                                                                    class="form-control ${not empty errorPassword ? 'is-invalid' : ''}"
-                                                                    path="password" type="password"
-                                                                    placeholder="Create a password" />
+                                                                <form:input class="form-control" path="password"
+                                                                    type="password" placeholder="Create a password" />
                                                                 <label for="inputPassword">Password</label>
-                                                                ${errorPassword}
+                                                                <form:errors path="confirmPassword" />
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">

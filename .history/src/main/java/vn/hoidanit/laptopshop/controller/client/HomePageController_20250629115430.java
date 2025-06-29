@@ -50,7 +50,7 @@ public class HomePageController {
             BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "client/auth/register";
+
         }
         User user = this.userService.registerDTOtoUser(registerUser);
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
